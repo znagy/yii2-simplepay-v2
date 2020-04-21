@@ -1,0 +1,25 @@
+{
+    "name": "znagy/yii2-simplepay-v2",
+    "description": "SimplePay 2.x by OTP Mobil Extension for Yii 2",
+    "keywords": [
+        "yii2",
+        "extension",
+        "simplepay",
+        "payment"
+    ],
+    "homepage": "https://github.com/znagy/yii2-simplepay-v2",
+    "type": "yii2-extension",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Zoltan Nagy",
+            "email": "zoltan.nagy@aiee.eu",
+            "homepage": "https://github.com/znagy"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "znagy\\SimplePayV2\\": "src"
+        }
+    }
+}
