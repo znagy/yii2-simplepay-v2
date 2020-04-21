@@ -17,6 +17,7 @@
             "homepage": "https://github.com/znagy"
         }
     ],
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "znagy\\SimplePayV2\\": "src"
