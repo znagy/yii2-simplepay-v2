@@ -44,7 +44,7 @@ class SimplePayV2 extends Component
 
     public function generateCallbackUrl($routeDefinition)
     {
-        return preg_replace('/^\/{2}/', '', Url::to($routeDefinition, ''));
+        return preg_replace('/^\/{2}/', '', Url::to($routeDefinition, 'true'));
     }
 
     /**
