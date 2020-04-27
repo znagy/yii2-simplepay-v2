@@ -15,11 +15,11 @@ use yii\base\Component;
 use yii\console\Application;
 use yii\helpers\Url;
 
-use znagy\SimplePay2\sdk\SimplePayStart;
-use znagy\SimplePay2\sdk\SimplePayBack;
-use znagy\SimplePay2\sdk\SimplePayIpn;
-use znagy\SimplePay2\sdk\SimplePayQuery;
-use znagy\SimplePay2\sdk\SimplePayFinish;
+use znagy\SimplePayV2\sdk\SimplePayStart;
+use znagy\SimplePayV2\sdk\SimplePayBack;
+use znagy\SimplePayV2\sdk\SimplePayIpn;
+use znagy\SimplePayV2\sdk\SimplePayQuery;
+use znagy\SimplePayV2\sdk\SimplePayFinish;
 
 /**
  * @property array $sdkConfig
