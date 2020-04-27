@@ -19,8 +19,8 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
-        "classmap": {
+        "classmap": [
             "src/"
-        }
+        ]
     }
 }
