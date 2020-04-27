@@ -33,6 +33,7 @@ class SimplePayV2 extends Component
     protected $defaultCurrency = 'HUF';
     protected $defaultLanguage = 'HU';
     protected $defaultPaymentMethod = 'CARD';
+    protected $defaultTimeoutInSec = 600;
 
     /**
      * @return array $config
@@ -151,6 +152,16 @@ class SimplePayV2 extends Component
         $this->defaultPaymentMethod = $paymentMethod;
     }
 
+    public function getDefaultTimeoutInSec()
+    {
+        return $this->defaultTimeoutInSec;
+    }
+
+    public function setDefaultTimeoutInSec($timeoutInSec)
+    {
+        $this->defaultTimeoutInSec = $timeoutInSec;
+    }
+
     protected function generateConfigArray($config = null)
     {
         return is_array($config) ? array_merge($this->sdkConfig, $config) : $this->sdkConfig;
@@ -160,10 +171,14 @@ class SimplePayV2 extends Component
     {
         $trx = new SimplePayStart;
 
-        $trx->addConfig($this->generateConfigArray($config));
+        $sdkConfig = $this->generateConfigArray($config);
+        $trx->addConfig($sdkConfig);
 
         $trx->addData('currency', $this->defaultCurrency);
         $trx->addData('language', $this->defaultLanguage);
+        $trx->addData('methods', [ $this->defaultPaymentMethod ]);
+        $trx->addData('timeout ', date("c", time() + $this->defaultTimeoutInSec));
+        $trx->addData('url', $sdkConfig['URL']);
 
         return $trx;
     }
