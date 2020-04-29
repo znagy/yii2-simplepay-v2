@@ -23,7 +23,7 @@ The component must be enabled in Yii's configuration by adding an entry for it i
         'HUF_SECRET_KEY' => '<SECRET_KEY>',
         'URL' => ['/order/status'],
         'LOGGER' => true,
-        'LOG_PATH' => '@app/logs',
+        'LOG_PATH' => dirname(__DIR__) . '/logs',
     ],
     'defaultCurrency' => 'HUF',
     'defaultLanguage' => 'HU',
