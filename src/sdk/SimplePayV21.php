@@ -1,5 +1,9 @@
 <?php
 
+namespace znagy\SimplePayV2\sdk;
+
+use \Exception;
+
 /**
  *  Copyright (C) 2020 OTP Mobil Kft.
  *
@@ -26,7 +30,6 @@
  * @link      http://simplepartner.hu/online_fizetesi_szolgaltatas.html
  */
 
-namespace znagy\SimplePayV2\sdk;
 
 /**
  * Base class for SimplePay implementation
