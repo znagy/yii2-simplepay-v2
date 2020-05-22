@@ -20,6 +20,10 @@ use znagy\SimplePayV2\sdk\SimplePayBack;
 use znagy\SimplePayV2\sdk\SimplePayIpn;
 use znagy\SimplePayV2\sdk\SimplePayQuery;
 use znagy\SimplePayV2\sdk\SimplePayFinish;
+use znagy\SimplePayV2\sdk\SimplePayDo;
+use znagy\SimplePayV2\sdk\SimplePayCardQuery;
+use znagy\SimplePayV2\sdk\SimplePayCardCancel;
+use znagy\SimplePayV2\sdk\SimplePayDoRecurring;
 
 /**
  * @property array $sdkConfig
@@ -228,6 +232,48 @@ class SimplePayV2 extends Component
         $trx->addConfig($this->generateConfigArray($config));
 
         $trx->addData('currency', $this->defaultCurrency);
+
+        return $trx;
+    }
+
+    public function createSimplePayDo(array $config = null, $currency = '')
+    {
+        $trx = new SimplePayDo;
+
+        $trx->addConfig($this->generateConfigArray($config));
+
+        $trx->addData('currency', $this->defaultCurrency);
+        $trx->addData('methods', [ $this->defaultPaymentMethod ]);
+
+        return $trx;
+    }
+
+    public function createSimplePayCardQuery(array $config = null)
+    {
+        $trx = new SimplePayCardQuery;
+
+        $trx->addConfig($this->generateConfigArray($config));
+
+        return $trx;
+    }
+
+    public function createSimplePayCardCancel(array $config = null)
+    {
+        $trx = new SimplePayCardCancel;
+
+        $trx->addConfig($this->generateConfigArray($config));
+
+        return $trx;
+    }
+
+    public function createSimplePayDoRecurring(array $config = null, $currency = '')
+    {
+        $trx = new SimplePayDoRecurring;
+
+        $trx->addConfig($this->generateConfigArray($config));
+
+        $trx->addData('currency', $this->defaultCurrency);
+        $trx->addData('methods', [ $this->defaultPaymentMethod ]);
 
         return $trx;
     }
