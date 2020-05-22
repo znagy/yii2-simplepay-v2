@@ -240,7 +240,10 @@ class SimplePayV2 extends Component
     {
         $trx = new SimplePayDo;
 
-        $trx->addConfig($this->generateConfigArray($config));
+        $sdkConfig = $this->generateConfigArray($config);
+        $trx->addConfig($sdkConfig);
+
+        $trx->addConfigData('merchantAccount', $sdkConfig[$this->defaultCurrency . '_MERCHANT']);
 
         $trx->addData('currency', $this->defaultCurrency);
         $trx->addData('methods', [ $this->defaultPaymentMethod ]);
@@ -252,7 +255,10 @@ class SimplePayV2 extends Component
     {
         $trx = new SimplePayCardQuery;
 
-        $trx->addConfig($this->generateConfigArray($config));
+        $sdkConfig = $this->generateConfigArray($config);
+        $trx->addConfig($sdkConfig);
+
+        $trx->addConfigData('merchantAccount', $sdkConfig[$this->defaultCurrency . '_MERCHANT']);
 
         return $trx;
     }
@@ -261,7 +267,10 @@ class SimplePayV2 extends Component
     {
         $trx = new SimplePayCardCancel;
 
-        $trx->addConfig($this->generateConfigArray($config));
+        $sdkConfig = $this->generateConfigArray($config);
+        $trx->addConfig($sdkConfig);
+
+        $trx->addConfigData('merchantAccount', $sdkConfig[$this->defaultCurrency . '_MERCHANT']);
 
         return $trx;
     }
@@ -270,7 +279,10 @@ class SimplePayV2 extends Component
     {
         $trx = new SimplePayDoRecurring;
 
-        $trx->addConfig($this->generateConfigArray($config));
+        $sdkConfig = $this->generateConfigArray($config);
+        $trx->addConfig($sdkConfig);
+
+        $trx->addConfigData('merchantAccount', $sdkConfig[$this->defaultCurrency . '_MERCHANT']);
 
         $trx->addData('currency', $this->defaultCurrency);
         $trx->addData('methods', [ $this->defaultPaymentMethod ]);
