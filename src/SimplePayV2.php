@@ -86,7 +86,7 @@ class SimplePayV2 extends Component
             'SANDBOX' => true,
 
             //common return URL
-            'URL' => 'http://' . $_SERVER['HTTP_HOST'] . '/back.php',
+            'URL' => '',
 
             //optional uniq URL for events
             /*
