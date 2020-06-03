@@ -209,7 +209,10 @@ class SimplePayV2 extends Component
     {
         $trx = new SimplePayQuery;
 
-        $trx->addConfig($this->generateConfigArray($config));
+        $sdkConfig = $this->generateConfigArray($config);
+        $trx->addConfig($sdkConfig);
+
+        $trx->addConfigData('merchantAccount', $sdkConfig[$this->defaultCurrency . '_MERCHANT']);
 
         return $trx;
     }
