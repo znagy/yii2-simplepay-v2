@@ -217,30 +217,30 @@ class Base
      */
     public function checkOrSetToJson($data = '')
     {
-        $json = '[]';
         //empty
         if ($data === '') {
-            $json =  json_encode([]);
+            return json_encode([]);
         }
         //array
         if (is_array($data)) {
-            $json =  json_encode($data);
+            return json_encode($data);
         }
         //object
         if (is_object($data)) {
-            $json =  json_encode($data);
+            return json_encode($data);
         }
         //json
         $result = @json_decode($data);
         if ($result !== null) {
-            $json =  $data;
+            return $data;
         }
         //serialized
         $result = @unserialize($data);
         if ($result !== false) {
-            $json =  json_encode($result);
+            return json_encode($result);
         }
-        return $json;
+
+        return json_encode([]);
     }
 
     /**
